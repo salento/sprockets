@@ -18,6 +18,7 @@
 package net.sf.sprockets.test;
 
 import net.sf.sprockets.google.DistanceMatrix;
+import net.sf.sprockets.google.DistanceMatrix.Params;
 
 import net.sf.sprockets.google.TravelDistance;
 import org.junit.Assert;
@@ -44,7 +45,7 @@ public class DistanceMatrixTest {
         Assert.assertEquals(DistanceMatrix.Response.Status.OK, resp.getStatus());
 
         List<TravelDistance> lst = resp.getResult();
-        Assert.assertEquals(2, lst.size());
+        Assert.assertEquals(1, lst.size());
         for (TravelDistance dist : lst) {
             System.out.println(dist);
         }
@@ -97,4 +98,18 @@ public class DistanceMatrixTest {
         }
     }
 
+    @Test
+    public void testGitHubSample() throws IOException {
+        DistanceMatrix.Response resp = DistanceMatrix.distances(new Params().origin(48.2116039, 16.37701)
+                .destinations("Staatsoper in Wien, Austria", "Rathaus in Wien, Austria").language("DE").mode("walking"));
+
+        Assert.assertEquals(DistanceMatrix.Response.Status.OK, resp.getStatus());
+
+        List<TravelDistance> lst = resp.getResult();
+        Assert.assertEquals(2, lst.size());
+        for (TravelDistance dist : lst) {
+            System.out.println(dist);
+        }
+
+    }
 }

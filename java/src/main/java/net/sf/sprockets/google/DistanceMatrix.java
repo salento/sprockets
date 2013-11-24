@@ -30,8 +30,10 @@ import org.apache.commons.configuration.Configuration;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -254,11 +256,24 @@ public class DistanceMatrix {
             boolean sensor = config.getBoolean("hardware.location");
             s.append("&sensor=").append(sensor);
 
-            if (mOrigins==null) throw new NullPointerException("origins must be set");
-            sPipes.appendTo(s.append("&origins="), mOrigins);
+            try {
+                if (mOrigins==null) throw new NullPointerException("origins must be set");
+                s.append("&origins=");
+                if (mOrigins.length>0) s.append(URLEncoder.encode(mOrigins[0], "UTF-8"));
+                for (int i=1; i<mOrigins.length; i++) {
+                    s.append("%7C").append(URLEncoder.encode(mOrigins[i], "UTF-8"));
+                }
 
-            if (mDestinations==null) throw new NullPointerException("destinations must be set");
-            sPipes.appendTo(s.append("&destinations="), mDestinations);
+                if (mDestinations==null) throw new NullPointerException("destinations must be set");
+                s.append("&destinations=");
+                if (mDestinations.length>0) s.append(URLEncoder.encode(mDestinations[0], "UTF-8"));
+                for (int i=1; i<mDestinations.length; i++) {
+                    s.append("%7C").append(URLEncoder.encode(mDestinations[i], "UTF-8"));
+                }
+
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("UTF-8 encoding isn't supported?!", e);
+            }
 
             if (!Strings.isNullOrEmpty(mMode)) {
                 s.append("&mode=").append(mMode);
