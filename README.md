@@ -6,6 +6,7 @@ Sprockets is a Java library that provides a Java interface for the [Google Place
 * Features
     * [Google Places API](#google-places-api)
     * [Google Street View Image API](#google-street-view-image-api)
+    * [Google Distance Matrix API](#google-distancematrix-api)
 * [Download and Configure](#download-and-configure)
 * [Javadoc][3]
 
@@ -30,6 +31,7 @@ Places.nearbySearch(new Params().location(47.60567, -122.3315).radius(5000)
 
 [Places Javadoc][7]
 
+
 Google Street View Image API
 ----------------------------
 
@@ -48,20 +50,19 @@ StreetView.image(new Params().location(40.748769, -73.985332)
 
 [StreetView Javadoc][8]
 
-Download and Configure
-----------------------
 
-Sprockets is available in [Maven Central][4].
+Google Distance Matrix API
+-----------------
 
-```xml
-<dependency>
-    <groupId>net.sf.sprockets</groupId>
-    <artifactId>sprockets</artifactId>
-    <version>1.1.0</version>
-</dependency>
+Query the Google Distance Matrix API to get durations and distances between multiple locations
+
+```java
+DistanceMatrix.distances(new Params().origin(48.2116039, 16.37701)
+   .destinations("Staatsoper in Wien, Austria", "Rathaus in Wien, Austria")
+   .mode("waling")).getResults();
 ```
 
-Before calling any of the Google Places API methods, you must first add your [Google API key][5] to the library configuration.  See the [Sprockets][6] class description for instructions on configuring the library settings.
+
 
 [1]: https://developers.google.com/places/
 [2]: https://developers.google.com/maps/documentation/streetview/
