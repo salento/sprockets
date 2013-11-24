@@ -1,12 +1,12 @@
 Sprockets
 =========
 
-Sprockets is a Java library that provides a Java interface for the [Google Places][1] and [Google Street View Image][2] APIs.
+Sprockets is a Java library that provides a Java interface for the [Google Places][1], [Google Street View Image][2] and [Google Distance Matrix][9] APIs.
 
 * Features
     * [Google Places API](#google-places-api)
     * [Google Street View Image API](#google-street-view-image-api)
-    * [Google Distance Matrix API](#google-distancematrix-api)
+    * [Google Distance Matrix API](#google-distance-matrix-api)
 * [Download and Configure](#download-and-configure)
 * [Javadoc][3]
 
@@ -72,3 +72,4 @@ DistanceMatrix.distances(new Params().origin(48.2116039, 16.37701)
 [6]: http://pushbit.github.io/sprockets/java/apidocs/index.html?net/sf/sprockets/Sprockets.html
 [7]: http://pushbit.github.io/sprockets/java/apidocs/index.html?net/sf/sprockets/google/Places.html
 [8]: http://pushbit.github.io/sprockets/java/apidocs/index.html?net/sf/sprockets/google/StreetView.html
+[9]: https://developers.google.com/maps/documentation/distancematrix/
