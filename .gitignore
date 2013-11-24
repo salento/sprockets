@@ -1,0 +1,8 @@
+# IDE files
+*.iml
+
+# personal config-file with api key
+sprockets.xml
+
+# build
+java/target
