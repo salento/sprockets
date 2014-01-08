@@ -73,7 +73,7 @@ public class DistanceMatrix {
 	 * <p>
 	 *
 	 * @throws java.io.IOException
-	 *             if there is a problem communicating with the Google Places API service
+	 *             if there is a problem communicating with the Google Distance Matrix API service
 	 */
 	public static Response distances(Params params)
 			throws IOException {
@@ -103,7 +103,7 @@ public class DistanceMatrix {
 	 * <pre>{@code
 	 * Params p = new Params().origins("Albertina in Vienna, Austria").
      *      destinations("48.20274,16.368843", "2116039,16.37701").mode("walking")
-	 * }</pre>
+	 * </pre>
 	 */
 	public static class Params {
         private String[] mOrigins;
