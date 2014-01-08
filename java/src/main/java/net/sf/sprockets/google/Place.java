@@ -514,7 +514,7 @@ public class Place {
 		/**
 		 * Read fields from an address components array.
 		 */
-		private Address(JsonReader in) throws IOException {
+		Address(JsonReader in) throws IOException {
 			in.beginArray();
 			while (in.hasNext()) {
 				String longName = null;
