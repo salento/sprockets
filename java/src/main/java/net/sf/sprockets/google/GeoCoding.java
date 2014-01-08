@@ -320,7 +320,7 @@ public class GeoCoding {
          */
         enum Key {
             status, error_message, results, address_components, long_name, short_name, types, formatted_address,
-            geometry, location, lat, lng, location_type, viewport, northeast, southwest,
+            geometry, location, lat, lng, location_type, viewport, northeast, southwest, partial_match,
 
             /**
              * New key that hasn't been added here yet.

@@ -45,7 +45,7 @@ public class GeoCodedLocation {
     GeoCodedLocation(JsonReader in) throws IOException {
         in.beginObject();
         while (in.hasNext()) {
-            Places.Response.Key key = Places.Response.Key.get(in.nextName());
+            GeoCoding.Response.Key key = GeoCoding.Response.Key.get(in.nextName());
 
             switch (key) {
                 case UNKNOWN:
